@@ -1,0 +1,89 @@
+<!--<h2 class="border border-light text-light text-center" style="background-color: #6f42c1;">Event Planner</h2>
+<div class="float-right">
+    <button type="button" class="btn btn-bd-download" (click)="isCollapsed = !isCollapsed"
+    (click)="isCollapsedplanner=true" (click)="isCollapsedadmin=true" tooltip="click to Login as user">user
+  </button>
+  <button type="button" class="btn btn-bd-download" (click)="isCollapsedplanner = !isCollapsedplanner"
+  (click)="isCollapsed=true" (click)="isCollapsedadmin=true" tooltip="click to Login as Planner">planner
+  </button>
+  <button type="button" class="btn btn-bd-download" (click)="isCollapsedadmin = !isCollapsedadmin"
+  (click)="isCollapsed=true" (click)="isCollapsedplanner=true"  tooltip="click to Login as admin">admin
+  </button>
+
+</div>
+-->
+
+<div class="card" style="padding: 0;">
+    <div class="card-body" style="padding:0">
+<div>
+    <div class="row text-center mr-0 text-light" style="background-color: #6f42c1;">
+        <div class="col text-right mt-1 md-0 " style="margin-left: 185px;"><h2>Event Planner</h2></div>
+        <div class="col text-right float-right mt-1 md-0">
+            <button type="button" class="btn btn-bd-download "  style="width: 10%" (click)="valids.isCollapsed = !valids.isCollapsed"
+            (click)="valids.isCollapsedplanner=true" (click)="valids.isCollapsedadmin=true" tooltip="click to Login as user" >user
+          </button>
+          <button type="button" class="btn btn-bd-download "style="width: 12%" (click)="valids.isCollapsedplanner = !valids.isCollapsedplanner"
+          (click)="valids.isCollapsed=true" (click)="valids.isCollapsedadmin=true" tooltip="click to Login as Planner">planner
+          </button>
+          <button type="button" class="btn btn-bd-download " style="width: 11%" (click)="valids.isCollapsedadmin = !valids.isCollapsedadmin"
+          (click)="valids.isCollapsed=true" (click)="valids.isCollapsedplanner=true"  tooltip="click to Login as admin">admin
+          </button>
+        
+        </div>
+    </div>
+</div>
+</div>
+</div>
+
+<div  class="float-left container" style="margin-top: 80px; margin-left: 30px; width: 10%;" tooltip="click to view details">
+    <button class="btn  btn-bd-primary text-center p-2 m-0" style="width: 100%;" >Parties</button><br/>
+    <button class="btn  btn-outline-secondary p-2 m-0" style="width: 100%;" >Wedding</button><br/>
+    <button class="btn  btn-bd-primary p-2 m-0" style="width: 100%;">Reception</button><br/>
+    </div>
+    <div class="container  float-left text-center ml-5" style="margin-top: 80px;" *ngIf="valids.showLogin"> 
+        <div class="alert alert-danger w-25 p-3" *ngIf="valids.showalert" style="margin-left: 430px;">{{msg}}</div> 
+        <div  *ngIf="!valids.isCollapsed">Login as User
+          <div class="cotainer">
+            <div>
+                <div  >
+                    <input  placeholder="email"/><br/>
+                  </div>
+                  <div>
+                      <input   placeholder="password"/><br/>
+                    </div>
+                    <button type="button" class="btn btn-bd-primary" style="width: 10%;" (click)="check()">
+                        Login
+                      </button>
+                      <button type="button" class="btn btn-outline-secondary" style="width: 10%;" (click)="valids.signup=true" (click)="nav()">
+                        SignUp
+                      </button></div>
+          </div>
+          
+          
+        </div>
+       
+        <div  *ngIf="!valids.isCollapsedplanner && valids.showLogin">Login as Planner
+          <div><input  placeholder="email"/><br/>
+            <input  placeholder="password"/><br/>
+            <button type="button" class="btn btn-bd-primary" style="width: 10%;" (click)="show=false" (click)="showlogout=true" (click)="showLogin=false">
+              Login
+            </button>
+            <button type="button" class="btn btn-outline-secondary"  style="width: 10%;" (click)="navp()">
+              SignUp
+            </button></div>
+            
+        </div>
+        
+        <div  *ngIf="!valids.isCollapsedadmin">Login as Admin
+            <div><input  placeholder="email"/><br/>
+              <input  placeholder="password"/><br/>
+              <button type="button" class="btn btn-bd-primary" style=" width: 10%;">
+                Login
+              </button>
+              <button type="button" class="btn btn-outline-secondary "  style=" width: 10%;">
+                SignUp
+              </button></div>
+              
+          </div>
+        
+        

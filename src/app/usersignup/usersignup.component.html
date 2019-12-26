@@ -1,0 +1,71 @@
+<div class="card" style="padding: 0;">
+    <div class="card-body" style="padding:0">
+<div class="grid">
+    <div class="row text-center mr-0 text-light" style="background-color: #6f42c1;">
+        <div class="col-lg text-right mt-1 md-0 " style="text-align: center;margin-left: 300px;"><h2>Event Planner</h2></div>
+        <div class="col text-right float-right mt-1 md-0">
+            <button type="button" class="btn btn-bd-download" style="width:13%;"
+           tooltip="click for homepage" (click)="home()">back<--
+          </button>
+         
+        
+        </div>
+    </div>
+</div>
+</div>
+</div>
+
+<div  class="float-left container" style="margin-top: 80px; margin-left: 30px; width: 10%;" tooltip="click to view details">
+  <button class="btn  btn-bd-primary text-center p-2 m-0" style="width: 100%;" >Parties</button><br/>
+  <button class="btn  btn-outline-secondary p-2 m-0" style="width: 100%;" >Wedding</button><br/>
+  <button class="btn  btn-bd-primary p-2 m-0" style="width: 100%;">Reception</button><br/>
+  </div>
+    <div class="container clearfix float-left text-center ml-5 mb-0" style="margin-top: 80px;">
+    <div><b>User Signup</b>
+        <div class="modal-content container text-left mt-0" [formGroup]="form" style="width:500px; margin-bottom: 0em;">
+          <div class="row" >
+            <div class="col">
+          <label for="name"><b>Name</b></label><input  type="text" placeholder="name" formControlName="name"/><br/>
+        </div>
+          <div class="col">      
+          <label for="email"><b>Email</b></label><input type="text" placeholder="email" formControlName="email"/><br/>
+        </div>
+          </div>
+            <div class="row">
+              <div class="col">
+          <label for="mobile"><b>Mobile</b></label><input type="text" placeholder="mobile" formControlName="mobile"/><br/>
+              </div>
+        <div class="col">
+          <label for="DOB"><b>DOB</b></label><br/> <input type="date" placeholder="DOB" formControlName="Dob"/><br/>
+        </div>
+      </div>
+      <div class="row">
+      <div class="col">
+          <label for="Address"><b>Address</b></label><input type="text" placeholder="Address" formControlName="Address"/><br/>
+      </div>
+        <div class="col">
+          <label for="City"><b>City</b></label><br/><input type="text" placeholder="City" formControlName="city"/><br/>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <label for="password"><b>Password</b></label><input type="password" placeholder="password" formControlName="Password"/><br/>
+        </div>
+        <div class="col">
+          <label for="Confirm password"><b>Confirm Password</b></label><input type="password" placeholder=" Confirm password" formControlName="ConfirmPassword"/> <br/>
+        </div>
+      </div>
+        <div>
+          <label for ="gender" ><b>Gender</b></label>
+<div class="radio-inline">
+          <input type="radio" name="gender" value="Male"/>Male
+<input type="radio" name="gender" value="Female"/>Female
+<input type="radio" name="gender" value="Other"/>Other
+</div>
+</div>
+</div>
+</div>
+ <button type="button" class="btn btn-outline-success " [disabled]="!form.valid " style="text-align: center; width:15%;" (click)="ValidSignup()">Submit </button>
+<div class="alert alert-danger"
+ *ngIf="form.controls.ConfirmPassword.errors.matchpassword" style="width:25%; margin-left: 38%;">Password not match</div>
+</div>
