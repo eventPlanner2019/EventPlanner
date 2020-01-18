@@ -1,0 +1,22 @@
+<div  style="padding: 0;">
+    <div style="padding:0">
+<div>
+    <div style="margin-top:10px;" class="row text-center mr-0 text-light" style="background-color: #6f42c1;">
+        <div class="col text-right mt-1 md-0 " style="margin-left: 185px;"><h2>Event Planner</h2></div>
+        <div class="col text-right float-right mt-1 md-0">
+            <button type="button" class="btn btn-danger" style="width: auto;" tooltip="click to logout" (click)="logout.userLogout()">Logout!
+            </button>
+        </div>
+    </div >
+    <div class="text-center mt-5"><b class="badge badge-success"><h3>Planner List</h3></b></div>
+    <div style="margin-top:10px;" class="container border border-success text-center">
+    <div *ngFor="let planner of planlist" class="container text-center" style="margin-top: 0px; width: auto; align-content: center;" tooltip="click to view details">
+       <!-- <button class="btn  btn-bd-primary text-center p-2 m-0" style="width: 100%;" (click)="nav()" >planner1</button><br/>
+        <button class="btn  btn-outline-secondary p-2 m-0" style="width: 100%;" >planner2</button><br/>
+        <button class="btn  btn-bd-primary p-2 m-0" style="width: 100%;">planner3</button><br/>-->
+        <button class="btn btn-bd-primary text-center p-2 m-0" style="width:auto;" value={{planner.NameOfCompany}} (click)="viewPlan($event)">{{planner.NameOfCompany}}</button>
+        </div>
+    </div>
+</div>
+</div>
+</div>

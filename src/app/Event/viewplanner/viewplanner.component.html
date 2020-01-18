@@ -1,0 +1,24 @@
+
+<div class="card" style="padding: 0;">
+    <div class="card-body" style="padding:0">
+    <div class="grid">
+    <div class="row text-center mr-0 text-light" style="background-color: #6f42c1;">
+        <div class="col-lg text-right mt-1 md-0 " style="margin-left: 185px;"><h2>Event Planner</h2></div>
+        <div class="col text-right float-right mt-1 md-0">
+            <button type="button" class="btn btn-danger" style="width: auto;" tooltip="click to logout" (click)="logout.userLogout()">Logout!
+            </button>
+        </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    <div class="card">
+        <div class="card-body">
+<span class="badge badge-light"><h5>Name:</h5></span><span>{{currPlanner.NameOfCompany}}</span><br/>
+<span class="badge badge-light"><h5>email</h5></span><span>{{currPlanner.Email}}</span><br/>
+<span class="badge badge-light"><h5>Address</h5></span>{{currPlanner.Address}}<span></span><br/>
+<span class="badge badge-light"><h5>Amount:</h5></span><span>12000</span><br/>
+<span class="badge badge-light"><h5>Contact no:</h5></span><span>{{currPlanner.OfficialPhoneNO}}</span>
+</div>
+<button class="btn btn-success " (click)="pay()" style="width: 10%;">Book!</button>
+</div>

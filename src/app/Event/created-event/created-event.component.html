@@ -1,0 +1,24 @@
+<div  style="padding: 0;">
+    <div style="padding:0">
+        <div>
+            <div class="row text-center mr-0 text-light" style="background-color: #6f42c1;">
+                <div class="col text-right mt-1 md-0 " style="margin-left: 185px;"><h2>Event Planner</h2></div>
+                <div class="col text-right float-right mt-1 md-0">
+                    <button type="button" class="btn btn-danger" style="width: auto;" tooltip="click to logout" (click)="logout.userLogout()">Logout!
+                    </button>
+                </div>
+            </div>
+    <div class="container clearfix float-left text-center" style="margin-top: 80px; margin-left: 200px;">
+        <div ><b class="text-center badge badge-success" style="margin-right: 190px;">Your Event Has Been Created</b>
+            <div class="modal-content container mt-0 text-left " style="width:500px; height:500px; margin-left:235px;">
+<div style="height: 100px; margin-top: 50px;">
+    <label for="Venue"><b>Venue:</b>{{eventdet.venue}}</label>
+</div>
+<div style="height: 100px; margin-top: 50px;">
+    <label for="Venue"><b>Planner Name:</b>{{eventdet.planneName}}</label>
+</div>
+<div style="height: 100px;">
+    <label for="Date"><b>Date:</b>{{eventdet.date}}</label>
+</div>
+<button class="btn btn-danger" (click)="cancel()">Cancel!</button>
+            </div></div></div>

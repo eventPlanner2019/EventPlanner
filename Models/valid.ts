@@ -10,4 +10,5 @@ export class Valid {
   pass:any;
   msg:any;
   showalert=false;
+  subscribed=false;
 }

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { User } from 'Models/user';
 import { ValidatePassword } from 'Models/validate-password';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-usersignup',
@@ -9,10 +10,11 @@ import { ValidatePassword } from 'Models/validate-password';
   styleUrls: ['./usersignup.component.css']
 })
 export class UsersignupComponent implements OnInit {
+ 
 
-  constructor(private formbuilder:FormBuilder) { }
+  constructor(private formbuilder:FormBuilder,private route:Router) {}
   form:FormGroup;
-  userData:User;
+  userData:User; 
   ngOnInit() 
   {
     this.form=this.formbuilder.group({
@@ -27,12 +29,14 @@ export class UsersignupComponent implements OnInit {
         
     },
     {
-    // validators:ValidatePassword.passwordMatch
+     validators:ValidatePassword.passwordMatch
     });
   }
   ValidSignup(){
 
     console.log(this.form.valid);
+    
+  
     this.userData = new User()
     {
       this.userData.id=this.form.controls.email.value;
@@ -43,8 +47,8 @@ export class UsersignupComponent implements OnInit {
       this.userData.Email=this.form.controls.email.value;
       this.userData.Address=this.form.controls.Address.value;
     }
-
-
+    this.route.navigate(['/','Home']);
+  
 
   }
   

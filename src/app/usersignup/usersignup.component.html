@@ -64,8 +64,10 @@
 </div>
 </div>
 </div>
-</div>
+</div><div class="alert alert-danger"
+*ngIf="form.controls.ConfirmPassword.errors?.passwordMatch" style="width:25%; margin-left: 38%;">Password not match</div>
+
+
  <button type="button" class="btn btn-outline-success " [disabled]="!form.valid " style="text-align: center; width:15%;" (click)="ValidSignup()">Submit </button>
-<div class="alert alert-danger"
- *ngIf="form.controls.ConfirmPassword.errors.matchpassword" style="width:25%; margin-left: 38%;">Password not match</div>
+
 </div>

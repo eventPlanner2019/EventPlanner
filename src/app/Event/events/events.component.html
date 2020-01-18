@@ -1,0 +1,75 @@
+
+
+<div class="card" style="padding: 0;">
+    <div class="card-body" style="padding:0">
+<div class="grid">
+    <div class="row text-center mr-0 text-light" style="background-color: #6f42c1;">
+        <div class="col-lg text-right mt-1 md-0 " style="margin-left: 250px;"><h2>Event Planner</h2></div>
+        <div class="col text-right float-right mt-1 md-0">
+            <button type="button" class="btn btn-danger" style="width: auto;" tooltip="click to logout" (click)="logout.userLogout()">Logout!
+            </button>
+        </div>
+    </div>
+</div>
+</div>
+</div>
+<div *ngIf="!showp">
+    <div class="container clearfix float-left text-center" style="margin-top: 80px; margin-left: 200px;">
+    <div ><b class="text-center badge badge-success" style="margin-right: 190px;">Create An Event</b>
+        <div class="modal-content container mt-0 text-left " [formGroup]="EventForm" style="width:500px; margin-left:235px;">
+            <div >
+                <div>
+            <label for="Type of Event"><b>Type of Event</b></label><br/><select name="TypeofEvent"  (change)="typeOfEvent($event)">
+                <option value="Party">Party</option>
+    <option  selected hidden>Select</option>
+    <option value="Reception">Reception</option>
+    <option value="Wedding">Wedding</option>
+            </select><br/>
+          </div>
+          <br/>
+          <div >
+            <label for="No Of guest"><b>No Of guest</b></label><input type="text" formControlName="NoOfguest" placeholder="No Of guest"/><br/>
+        </div>
+        </div>
+        <div  >
+            <div >
+            <label for="Event date"><b>Event date</b></label><br/><input class="form-control" placeholder="date of Event" bsDatepicker  [minDate]="minDate" formControlName="Eventdate" placeholder="Event date"/><br/>
+           
+        </div>
+    </div>
+    <br/>
+
+    <div  >
+        <div >
+            <label for="City"><b>City</b></label><!--<input type="text"  formControlName="City" placeholder="City"/>--><br/>
+            <select name="text"  (change)="cityChange($event)">
+                <option value="Banglore">Banglore</option>
+    <option  selected hidden>Select</option>
+    <option value="Vizag">Vizag</option>
+    <option value="Chennai">Chennai</option>
+    <option value="Coimbatore">Coimbatore</option> 
+    <option value="Lucknow">Lucknow</option>
+    <option value="Kanpur">Kanpur</option>
+    <option value="Bikaner">Bikaner</option>
+            </select>
+       
+       
+        </div>
+        <br/>
+        <div>
+            <label for="Budget Range"><b>Budget Range</b></label><input type="text" formControlName="BudgetRange" placeholder="Budget Range"/><br/>
+    </div>
+</div> 
+<button type="button" class="btn btn-outline-success " style="width:200px; margin-left: 130px;"  [disabled]="!EventForm.valid " (click)="click()">Search! </button>   
+</div>
+          
+          </div>
+    </div>
+</div>
+<div *ngIf="showp">
+    <div  style="text-align: center; margin-top: 200px;" tooltip="click to view details">
+        <button class="btn  btn-bd-primary text-center" style="width: 15%;" >Planner1</button><br/>
+        <button class="btn  btn-outline-secondary" style="width: 15%;" >Planner2</button><br/>
+        <button class="btn  btn-bd-primary" style="width: 15%;">Planner3</button><br/>
+        </div>
+</div>

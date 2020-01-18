@@ -6,6 +6,4 @@ export class User {
     Gender:any;
     Email:any;
     Address:any;
-    
-
 }

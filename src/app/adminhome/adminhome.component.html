@@ -1,0 +1,233 @@
+<div class="card" style="padding: 0;">
+    <div class="card-body" style="padding:0">
+        <div class="grid">
+            <div class="row text-center mr-0 text-light" style="background-color: #6f42c1;">
+                <div class="col-lg text-right mt-1 md-0 " style="margin-left: 185px;">
+                    <h2>Event Planner</h2>
+                </div>
+                <div class="col text-right float-right mt-1 md-0">
+                    <button type="button" class="btn btn-danger" style="width: auto;" tooltip="click to logout" (click)="logout.adminLogout()">Logout!
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div *ngIf="show">
+
+    <select (change)="selectChangeHandler($event)">
+        <option disabled hidden>select</option>
+        <option>User</option>
+        <option>Planner</option>
+    </select>
+    <select *ngIf="show_users" (change)="UserChange($event)">
+    <option disabled hidden>select</option>
+        <option>show users</option>
+        <option>view payments</option>
+        <option>Planned Events</option>
+    </select>
+    <select *ngIf="show_planners" (change)="plannerChange($event)">
+        <option disabled hidden>select</option>
+            <option>show planner</option>
+            <option>view payments</option>
+            <option>Planned Events</option>
+        </select>
+        <br/>
+    <h3 class="badge badge-pill badge-primary">you selected:</h3><span> {{selectedOption}}</span>
+    <br/>
+    <h3 class="badge badge-pill badge-primary" >no of users:</h3><span> {{ no_of_users}}</span>
+    <br/>
+    <h3 class="badge badge-pill badge-primary" >Total no of Planners:</h3><span> {{ no_of_planners}}</span>
+    <br/>
+    <h3 class="badge badge-pill badge-primary">Total Revenue Generated:</h3><span> {{ total_revenue }}</span>
+</div>
+<!--
+<div *ngIf="show_users">
+
+    <form class="form-inline waves-light" mdbWavesEffect>
+        <div class="modal-content container text-left" style="width:500px;">
+
+            <label for="Total no of Users"><b style="margin-right: 30px;">Total no of Users </b> {{ no_of_users}}
+            </label> <br />
+            <input type="button" value="Show Users" (click)="Users()" /><br />
+            <input type="button" value="View Payments" (click)="PaymentsReceived()" /><br />
+            <input type="button" value="Planned Events" (click)="PlannedEvents()" /><br />
+            <label for="Total Revenue Generated"><b style="margin-right: 30px;">Total Revenue Generated</b>
+                {{ total_revenue }} </label> <br />
+
+        </div>
+    </form>
+    <br /><br />
+</div>
+
+<div *ngIf="show_planners">
+
+
+    <form class="form-inline waves-light" mdbWavesEffect>
+        <div class="modal-content container text-left" style="width:500px;">
+
+            <label for="Total no of Planners"><b style="margin-right: 30px;">Total no of Planners </b>
+                {{ no_of_planners}} </label> <br />
+            <input type="button" value="Show Planners" (click)="Planners()" /><br />
+            <input type="button" value="View Payments" (click)="PaymentsReceived()" /><br />
+            <input type="button" value="Planned Events" (click)="PlannedEvents()" /><br />
+            <label for="Total Revenue Generated"><b style="margin-right: 30px;">Total Revenue Generated</b>
+                {{ total_revenue }} </label> <br />
+
+        </div>
+    </form>
+    <br /><br />
+</div>
+-->
+<!-- shows  -->
+
+<div *ngIf="show_payments_rec" style="margin-left: 500px;">
+    <b style="margin-left:70px;">PAYMENTS RECEIVED</b>
+
+
+    <table>
+
+        <thead class="thead-dark">
+            <th *ngFor="let column of payments_headers">
+                {{column}}
+            </th>
+        </thead>
+
+        <tbody *ngFor="let pmts of payments" class="thead-light">
+            <td>
+                {{ pmts.Payment_Id}}
+            </td>
+            <td>
+                {{ pmts.User_Id}}
+            </td>
+            <td>
+                {{ pmts.Amount}}
+            </td>
+        </tbody>
+
+    </table>
+</div>
+
+<div *ngIf="show_payments_rec_planners" style="margin-left: 500px;">
+    <b style="margin-left:70px;">PAYMENTS RECEIVED</b>
+
+
+    <table>
+
+        <tr>
+            <th *ngFor="let column of payments_headers">
+                {{column}}
+            </th>
+        </tr>
+        <tr *ngFor="let pmts of payments">
+            <td>
+                {{ pmts.Payment_Id}}
+            </td>
+            <td>
+                {{ pmts.User_Id}}
+                /td>
+            <td>
+                {{ pmts.Amount}}
+            </td>
+        </tr>
+    </table>
+</div>
+
+<div *ngIf="show_planned_eve " style="margin-left: 500px;">
+    <b style="margin-left:70px;">PLANNED EVENTS</b>
+    <table>
+
+        <tr>
+            <th *ngFor="let col of planned_event_headers">
+                {{col}}
+            </th>
+        </tr>
+
+
+        <tr *ngFor="let pets of planned_events">
+
+            <td>
+                {{pets.Eve_Date}}
+            </td>
+            <td>
+                {{pets.Venue}}
+            </td>
+            <td>
+                {{pets.Planner_Name}}
+            </td>
+            <td>
+                {{pets.User_Name}}
+            </td>
+        </tr>
+    </table>
+</div>
+
+<!--view all-->
+<div *ngIf="show_users_view " style="margin-left: 500px;">
+    <b style="margin-left:70px;">USERS</b>
+    <table>
+
+        <tr>
+            <th *ngFor="let col of users_headers">
+                {{col}}
+            </th>
+        </tr>
+
+
+        <tr *ngFor="let us of users">
+
+            <td>
+                {{us.id}}
+            </td>
+            <td>
+                {{us.phone}}
+            </td>
+            <td>
+                {{us.name}}
+            </td>
+            <td>
+                {{us.Gender}}
+            </td>
+            <td>
+                {{us.Email}}
+            </td>
+            <td>
+                {{us.Address}}
+            </td>
+        </tr>
+    </table>
+</div>
+
+<div *ngIf="show_planners_view " style="margin-left: 500px;">
+    <b style="margin-left:70px;">PLANNERS</b>
+    <table>
+
+        <tr>
+            <th *ngFor="let col of planners_headers">
+                {{col}}
+            </th>
+        </tr>
+
+
+        <tr *ngFor="let us of planners">
+            <!-- <td *ngFor = "let column of planned_event_headers">   -->
+            <td>
+                {{us.ID}}
+            </td>
+            <td>
+                {{us.NameOfCompany}}
+            </td>
+            <td>
+                {{us.OfficialPhoneNO}}
+            </td>
+            <td>
+                {{us.CorporateIdentificationNo}}
+            </td>
+            <td>
+                {{us.Email}}
+            </td>
+        </tr>
+    </table>
+</div>

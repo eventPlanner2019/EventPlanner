@@ -1,0 +1,62 @@
+
+<div class="card" style="padding: 0;">
+    <div class="card-body" style="padding:0">
+    <div class="grid">
+    <div class="row text-center mr-0 text-light" style="background-color: #6f42c1;">
+        <div class="col-lg text-center mt-1 md-0 "><h2>Event Planner</h2></div>
+    </div>
+    </div>
+    </div>
+    </div>
+    <div   style="margin-top: 80px; margin-left: 30px;" tooltip="click to view details">
+    </div>
+    <div >
+    <div class="container text-center">
+    <div><span class="badge badge-success"><h6>Signup</h6></span>
+        <div class="modal-content container text-left mt-0" style="width:500px;">
+           
+        <div [formGroup]="PlannerSignup">
+            <table>
+                <tr><td><label for="Name of Company"><b>Name Of Company</b></label></td>
+                    <td><input  type="text" placeholder="name of company" formControlName="Name_Of_Company"/></td></tr>
+                    
+                <tr><td><label for="Official Phone Number"><b>Official Phone Number</b></label></td>
+                    <td><input  type="text" placeholder="Official Phone Number" formControlName="Official_Phone"/></td></tr>
+
+                <tr><td><label for="Email"><b>Email</b></label></td>
+                    <td><input  type="email" placeholder="Email" formControlName="Email"/></td></tr>
+
+                <tr><td><label for="Corporate Identification Number"><b>Corporate Identification Number</b></label></td>
+                    <td><input  type="text" placeholder="Corporate Identification Number" formControlName="CIN"/></td></tr>
+
+                <tr><td><label for="Address"><b>Address</b></label></td>
+                    <td><input  type="text" placeholder="Address" formControlName="Address"/></td></tr>
+
+                <tr><td><label for="Name of your contact person"><b>Name of your contact person</b></label></td>
+                    <td><input  type="text" placeholder="Name of your contact person" formControlName="Contact_Name"/></td></tr>
+
+                <tr><td><label for="Contact Person's phone"><b>Contact Person's phone</b></label></td>
+                    <td><input  type="text" placeholder="Contact Person's phone" formControlName="Contact_Person_Phone"/></td></tr>
+
+                <tr><td><label for="Password"><b>Password</b></label></td>
+                    <td><input  type="password" placeholder="Password" formControlName="Password"/></td></tr>
+
+                <tr><td><label for="Confirm Password"><b>Confirm Password</b></label></td>
+                    <td><input  type="password" placeholder="Confirm Password" formControlName="Confirm_Password"/></td></tr>
+            </table>
+            
+          <label for ="gender" ><b>Gender</b></label>
+            <div>
+                <input type="radio" name="gender" value="Male"/>Male
+                <input type="radio" name="gender" value="Female"/>Female
+                <input type="radio" name="gender" value="Other"/>Other
+       
+        </div>
+          </div>
+          <button type="submit" class="btn btn-outline-success " style="width:200px; margin-left: 140px;" (click)="onSubmit()" [disabled]="!PlannerSignup.valid">Submit </button>
+               </div>
+       
+      </div>
+    </div>
+</div>
+    

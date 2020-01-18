@@ -1,0 +1,34 @@
+<div  style="padding: 0;">
+    <div style="padding:0">
+<div>
+    <div class="row text-center mr-0 text-light" style="background-color: #6f42c1;">
+        <div class="col  mt-1 md-0 "><h2>Event Planner</h2></div>
+    </div>
+    <div class="container clearfix float-left text-center" style="margin-top: 80px; margin-left: 200px;">
+        <div ><b class="text-center badge badge-success" style="margin-right: 190px;">Payment</b>
+            <div class="modal-content container mt-0 text-left" style="width:500px; margin-left:235px;">
+<label for ="payment mode"><b>payment mode</b></label><select name="payment" (change)="check($event)">
+   
+    <option value="Card">Card</option>
+    <option  selected hidden>Payment Mode</option>
+    <option value="NetBanking">NetBanking</option>
+  </select>
+  <b>Total Amount :900</b>
+  <div *ngIf="!paym && selected">
+    <label for ="Card no"><b>Card No</b></label><input type="text"/>
+    <label for ="exp date"><b>Exp Date</b></label><input style="width:20%" type="text"/>
+    <label for ="cvv"><b>Cvv</b></label><input style="width:15%" type="text"/>
+  </div>
+  <div *ngIf="paym && selected">
+   <select>
+    <option value="Card">icici</option>
+    <option  selected hidden>select your bank</option>
+    <option value="NetBanking">kotak</option>
+   </select>
+   
+  </div>
+  <button class="btn btn-success" style="width:25%;" [disabled]="!selected" (click)="payment()">pay</button>
+  
+            </div>
+  
+    </div></div>

@@ -1,18 +1,5 @@
-<!--<h2 class="border border-light text-light text-center" style="background-color: #6f42c1;">Event Planner</h2>
-<div class="float-right">
-    <button type="button" class="btn btn-bd-download" (click)="isCollapsed = !isCollapsed"
-    (click)="isCollapsedplanner=true" (click)="isCollapsedadmin=true" tooltip="click to Login as user">user
-  </button>
-  <button type="button" class="btn btn-bd-download" (click)="isCollapsedplanner = !isCollapsedplanner"
-  (click)="isCollapsed=true" (click)="isCollapsedadmin=true" tooltip="click to Login as Planner">planner
-  </button>
-  <button type="button" class="btn btn-bd-download" (click)="isCollapsedadmin = !isCollapsedadmin"
-  (click)="isCollapsed=true" (click)="isCollapsedplanner=true"  tooltip="click to Login as admin">admin
-  </button>
 
-</div>
--->
-
+<div class="sticky-top">
 <div class="card" style="padding: 0;">
     <div class="card-body" style="padding:0">
 <div>
@@ -42,30 +29,32 @@
     </div>
     <div class="container  float-left text-center ml-5" style="margin-top: 80px;" *ngIf="valids.showLogin"> 
         <div class="alert alert-danger w-25 p-3" *ngIf="valids.showalert" style="margin-left: 430px;">{{msg}}</div> 
-        <div  *ngIf="!valids.isCollapsed">Login as User
-          <div class="cotainer">
-            <div>
+        <div  *ngIf="!valids.isCollapsed"><h2 class="badge badge-success"><b>Login as User</b></h2>
+          <div class="container" [formGroup]="userform" >
+            <div >
                 <div  >
-                    <input  placeholder="email"/><br/>
+                    <input   placeholder="email" style="width: auto;" type="text" formControlName="useremail"/><br/>
                   </div>
                   <div>
-                      <input   placeholder="password"/><br/>
+                      <input type="password" style="width: auto;"  placeholder="password" formControlName="userpassword"/><br/>
                     </div>
-                    <button type="button" class="btn btn-bd-primary" style="width: 10%;" (click)="check()">
+                    <button type="button" class="btn btn-bd-primary" style="width: 10%;"  [disabled]="!userform.valid " (click)="check()">
                         Login
                       </button>
                       <button type="button" class="btn btn-outline-secondary" style="width: 10%;" (click)="valids.signup=true" (click)="nav()">
                         SignUp
-                      </button></div>
+                      </button>
+                      <div *ngIf="showalert" class=" alert alert-danger" style="width: 20%; margin-left: 40%;"><span style="width:10px;">check credentials</span></div>
+                    </div>
           </div>
           
           
         </div>
        
-        <div  *ngIf="!valids.isCollapsedplanner && valids.showLogin">Login as Planner
-          <div><input  placeholder="email"/><br/>
-            <input  placeholder="password"/><br/>
-            <button type="button" class="btn btn-bd-primary" style="width: 10%;" (click)="show=false" (click)="showlogout=true" (click)="showLogin=false">
+        <div  *ngIf="!valids.isCollapsedplanner && valids.showLogin"><h2 class="badge badge-success">Login as Planner</h2 >
+          <div [formGroup]=" plannerform"><input style="width: auto;" placeholder="email" type="text" formControlName="planneremail"/><br/>
+            <input type="password" style="width: auto;" placeholder="password" formControlName="plannerpassword"/><br/>
+            <button type="button" class="btn btn-bd-primary" style="width: 10%;" (click)="show=false"   [disabled]="!plannerform.valid " (click)="showlogout=true" (click) ="plannerlogin()"(click)="showLogin=false">
               Login
             </button>
             <button type="button" class="btn btn-outline-secondary"  style="width: 10%;" (click)="navp()">
@@ -74,16 +63,18 @@
             
         </div>
         
-        <div  *ngIf="!valids.isCollapsedadmin">Login as Admin
-            <div><input  placeholder="email"/><br/>
-              <input  placeholder="password"/><br/>
-              <button type="button" class="btn btn-bd-primary" style=" width: 10%;">
+        <div  *ngIf="!valids.isCollapsedadmin"><h2 class="badge badge-success">Login as Admin</h2>
+            <div [formGroup]="adminform">
+              <input  placeholder="email" style="width: auto;" type="text" formControlName="adminemail"/><br/>
+              <input type="password" style="width: auto;" placeholder="password" formControlName="adminpassword"/><br/>
+              <button type="button" class="btn btn-bd-primary" style=" width: 10%;" (click)="check2()" [disabled]="!adminform.valid ">
                 Login
               </button>
               <button type="button" class="btn btn-outline-secondary "  style=" width: 10%;">
                 SignUp
-              </button></div>
+              </button>
+            </div>
               
           </div>
-        
+        </div>        
         

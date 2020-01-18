@@ -8,4 +8,6 @@ export class Planner {
     Address:any;
     NumberOfYourContactPerson:number;
     Gender:any;
+  controls: any;
+  amount:number;
 }

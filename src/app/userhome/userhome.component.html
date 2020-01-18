@@ -1,0 +1,34 @@
+<div class="card" style="padding: 0;">
+    <div class="card-body" style="padding:0">
+<div class="grid">
+    <div class="row text-center mr-0 text-light" style="background-color: #6f42c1;">
+        <div class="col-lg text-right mt-1 md-0 " style="margin-left: 185px;"><h2>Event Planner</h2></div>
+        <div class="col text-right float-right mt-1 md-0">
+            <button type="button" class="btn btn-danger"
+           tooltip="click to logout" style="width: auto;" (click)="logout.userLogout()">Logout!
+          </button>
+        </div>
+    </div>
+</div>
+</div>
+</div>
+<div>
+<div class="container float-right text-right mt-0 clearfix">
+    <button type="button" class="btn btn-outline-success"
+           tooltip="click for adding an event"style="width: auto" [disabled]="issubscribed" (click)="nava()">Add Event
+          </button>
+          <button *ngIf="issubscribed" type="button" style="width: auto"  class="btn btn-outline-danger"
+           (click)="cancel()">Cancel Event
+          </button>
+</div>
+</div>
+<div class="container clearfix float-left text-center" style="margin-top: 80px; margin-left: 200px;">
+
+
+<div *ngIf="!issubscribed" class="alert alert-info" >you are not subscribed to any event yet
+    click on add event to subscribe   
+</div>
+<div *ngIf="issubscribed" class="alert alert-success">
+     your payment is successful
+     your event is scheduled on xyz date
+</div></div>
