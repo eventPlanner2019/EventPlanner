@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Planner } from 'Models/planner';
 import { Router } from '@angular/router';
+import { SignupService } from 'Services/signup.service';
 
 @Component({
   selector: 'app-planner-signup',
@@ -13,6 +14,7 @@ export class PlannerSignupComponent implements OnInit {
   constructor(private formbuilder:FormBuilder,private route:Router) { }
   PlannerSignup:FormGroup;
   plannerData:Planner; 
+  Signup=new SignupService();
   ngOnInit() {
    this.PlannerSignup=this.formbuilder.group({
       Name_Of_Company:['',Validators.required],
@@ -30,15 +32,15 @@ export class PlannerSignupComponent implements OnInit {
   {
   this.plannerData = new Planner()
     {
-    this.plannerData.ID=this.PlannerSignup.controls.Email.value();
-    this.plannerData.Address=this.PlannerSignup.controls.Address.value();
-    this.plannerData.CorporateIdentificationNo=this.PlannerSignup.controls.CIN.value();
-    this.plannerData.Email=this.PlannerSignup.controls.Email.value();
-    this.plannerData.Gender=this.PlannerSignup.controls.Gender.value();
-    this.plannerData.NameOfCompany=this.PlannerSignup.controls.Name_Of_Company.value();
-    this.plannerData.NumberOfYourContactPerson=this.PlannerSignup.controls.Contact_Name.value();
-    this.plannerData.OfficialPhoneNO=this.PlannerSignup.controls.Official_Phone.value();
-    this.plannerData.password=this.PlannerSignup.controls.Password.value();
+    this.plannerData.ID=this.PlannerSignup.controls.Email.value;
+    this.plannerData.Address=this.PlannerSignup.controls.Address.value;
+    this.plannerData.CorporateIdentificationNo=this.PlannerSignup.controls.CIN.value;
+    this.plannerData.Email=this.PlannerSignup.controls.Email.value;
+    //this.plannerData.Gender=this.PlannerSignup.controls.Gender.value;
+    this.plannerData.NameOfCompany=this.PlannerSignup.controls.Name_Of_Company.value;
+    this.plannerData.NumberOfYourContactPerson=this.PlannerSignup.controls.Contact_Name.value;
+    this.plannerData.OfficialPhoneNO=this.PlannerSignup.controls.Official_Phone.value;
+    this.plannerData.password=this.PlannerSignup.controls.Password.value;
     //this.plannerData.confirmpassword=this.PlannerSignup.controls.Confirm_Password.value();
     }
   }
@@ -48,7 +50,8 @@ export class PlannerSignupComponent implements OnInit {
   onSubmit()
   {
    console.log(this.PlannerSignup.valid);
-   this.route.navigate(['/','createpage'])
+   this.getData();
+   this.Signup.PlannerSignup(this.route,this.plannerData);
   }
 
 

@@ -60,16 +60,9 @@
             <label for="Budget Range"><b>Budget Range</b></label><input type="text" formControlName="BudgetRange" placeholder="Budget Range"/><br/>
     </div>
 </div> 
-<button type="button" class="btn btn-outline-success " style="width:200px; margin-left: 130px;"  [disabled]="!EventForm.valid " (click)="click()">Search! </button>   
+<button type="button" class="btn btn-outline-success " style="width:200px; margin-left: 130px;"  [disabled]="!EventForm.valid " (click)="searchPlanner()">Search! </button>   
 </div>
           
           </div>
     </div>
-</div>
-<div *ngIf="showp">
-    <div  style="text-align: center; margin-top: 200px;" tooltip="click to view details">
-        <button class="btn  btn-bd-primary text-center" style="width: 15%;" >Planner1</button><br/>
-        <button class="btn  btn-outline-secondary" style="width: 15%;" >Planner2</button><br/>
-        <button class="btn  btn-bd-primary" style="width: 15%;">Planner3</button><br/>
-        </div>
 </div>

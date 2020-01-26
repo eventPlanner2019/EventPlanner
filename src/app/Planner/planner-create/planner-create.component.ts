@@ -122,7 +122,9 @@ export class PlannerCreateComponent implements OnInit {
 
     moveToNext()
     {
-      this.route.navigate(['/','subscribeprompt'])
+      console.log("ASDasd");
+     // this.route.navigate(['/','subscribeprompt'])
+      this. route.navigate(['/','Home']);
     }
     check()
     {

@@ -43,9 +43,9 @@ export class AdminhomeComponent implements OnInit {
   no_of_planners : number = this.planners.length;
   
   payments_headers = ["Payment Id", "User Id", "Amount"];
-  payments: Payments[] = [{Payment_Id : '1', User_Id : '10', Amount : 100 },
-  {Payment_Id : '2', User_Id : '20', Amount : 200 }, 
-  {Payment_Id : '3', User_Id : '30', Amount : 300 }];
+  payments: Payments[] = [{PaymentMode : '1', Planner_Id : '10', Amount : 100 },
+  {PaymentMode : '2', Planner_Id : '20', Amount : 200 }, 
+  {PaymentMode : '3', Planner_Id : '30', Amount : 300 }];
 
   total_revenue : number = 600; 
 

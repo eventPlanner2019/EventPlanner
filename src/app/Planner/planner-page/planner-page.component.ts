@@ -31,4 +31,9 @@ export class PlannerPageComponent implements OnInit {
   {
    this.route.navigate(['/','allrequests'])
   }
+  subscribe(){
+
+    this.route.navigate(['/','subscribeprompt']);
+
+  }
 }

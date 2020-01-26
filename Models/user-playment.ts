@@ -1,6 +1,6 @@
 export class UserPlayment {
-userid:number
-date:any
+userid:any
+amount:number
 paymentmode:any
 
 

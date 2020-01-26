@@ -4,6 +4,7 @@ import { Events } from 'Models/event';
 import { Router } from '@angular/router';
 import { LogOutServiceService } from 'Services/log-out-service.service';
 import{BsDatepickerConfig} from 'ngx-bootstrap/datepicker';
+import { PlannersService } from 'Services/planners.service';
 @Component({
   selector: 'app-events',
   templateUrl: './events.component.html',
@@ -15,11 +16,12 @@ export class EventsComponent implements OnInit {
 
 
 minDate:Date;
+searchplanner = new PlannersService();
   constructor(private formbuilder:FormBuilder,private route:Router) {
    
     this.minDate=new Date();
     
-
+   
 
     
    }
@@ -65,7 +67,7 @@ typeOfEvent(event)
 {
   //this.eventData.typeOfEvent=event.target.value;
   
-  this.eventData.typeOfEvent= event.target.value;;
+  this.eventData.typeOfEvent= event.target.value;
   console.log(this.eventData.typeOfEvent)
  
 }
@@ -77,5 +79,9 @@ cityChange(event)
   this.eventData.City= event.target.value;;
   console.log(this.eventData.City)
  
+}
+searchPlanner()
+{
+  this.searchplanner.arrayPlanners(this.route,this.eventData)
 }
 }

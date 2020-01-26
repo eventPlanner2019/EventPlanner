@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { User } from 'Models/user';
 import { ValidatePassword } from 'Models/validate-password';
 import { Router } from '@angular/router';
+import { SignupService } from 'Services/signup.service';
 
 @Component({
   selector: 'app-usersignup',
@@ -13,6 +14,7 @@ export class UsersignupComponent implements OnInit {
  
 
   constructor(private formbuilder:FormBuilder,private route:Router) {}
+  usersignup=new SignupService();
   form:FormGroup;
   userData:User; 
   ngOnInit() 
@@ -47,9 +49,9 @@ export class UsersignupComponent implements OnInit {
       this.userData.Email=this.form.controls.email.value;
       this.userData.Address=this.form.controls.Address.value;
     }
-    this.route.navigate(['/','Home']);
+   
   
-
+this.usersignup.userSignup(this.route,this.userData);
   }
   
 

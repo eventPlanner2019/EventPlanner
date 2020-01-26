@@ -18,7 +18,6 @@ export class PlannerlistComponent implements OnInit {
     {
       this.route.navigate(['/','Home']);
     }
-    this.plannerlist.arrayPlanners();
     var list=localStorage.getItem("plannerlist2");
     console.log(list);
     this.planlist=JSON.parse(list);
